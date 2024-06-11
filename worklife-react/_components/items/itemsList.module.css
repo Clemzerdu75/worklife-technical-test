@@ -1,0 +1,9 @@
+.contentWrapper {
+  max-width: 42rem;
+}
+
+.itemWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}

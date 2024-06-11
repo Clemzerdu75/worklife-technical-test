@@ -1,0 +1,59 @@
+.form {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.inputWrapper {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: solid 1px lightgrey;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  padding-right: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  background: none;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.deleteWrapper {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteButton {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+}
+
+.deleteButton * {
+  width: 80%;
+  height: 80%;
+}
+
+@media screen and (max-width: 640px) {
+  .form {
+    gap: 0.5rem;
+  }
+}

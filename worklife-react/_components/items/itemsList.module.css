@@ -1,9 +1,33 @@
 .contentWrapper {
-  max-width: 42rem;
+  width: 85%;
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .itemWrapper {
+  position: relative;
   display: grid;
+  align-items: stretch;
+  justify-content: center;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+}
+
+/* Tablet size */
+@media screen and (max-width: 1024px) {
+  .itemWrapper {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile size */
+@media screen and (max-width: 640px) {
+  .itemWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
 }

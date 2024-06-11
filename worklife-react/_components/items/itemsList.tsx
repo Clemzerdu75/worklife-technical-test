@@ -2,10 +2,12 @@
 
 import getItems from "@/app/api/getItems";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import React, { Key, useState } from "react";
+import React, { Key, useMemo, useState } from "react";
 import SearchBox from "../searchbox/searchbox";
 
 import style from "./itemsList.module.css";
+import { ItemImage, ItemTitle, ItemWrapper, ItemLoader } from "./item";
+import Button from "../button/button";
 
 const ItemsList = () => {
   const [search, setSearch] = useState("");
@@ -26,36 +28,48 @@ const ItemsList = () => {
 
   if (error) return <p> Communication error during API call</p>;
 
-  const resetSearch = () => {
-    setSearch("");
-  };
-
+  console.log(data);
   return (
     <div className={style.contentWrapper}>
       <SearchBox setSearch={setSearch} />
-
-      {search.length ? <button onClick={resetSearch}>Delete</button> : null}
-      {isFetching && !isFetchingNextPage ? <p>Getting data ....</p> : null}
       <div className={style.itemWrapper}>
+        {isFetching && !isFetchingNextPage ? <ItemsLoader /> : null}
+
         {data
           ? data.pages.map((page, i) => (
               <React.Fragment key={i}>
-                {page.artObjects.map((object, i: Key) => {
-                  return <p key={i}>{object.title}</p>;
-                })}
+                {page.artObjects.map((object, i: Key) => (
+                  <ItemWrapper key={i}>
+                    {object.hasImage ? (
+                      <ItemImage src={object.webImage.url} />
+                    ) : null}
+                    <ItemTitle>{object.title}</ItemTitle>
+                  </ItemWrapper>
+                ))}
               </React.Fragment>
             ))
-          : "Nothing Found"}
+          : null}
+        {isFetchingNextPage && <ItemsLoader />}
       </div>
-      <button
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
-      >
-        {hasNextPage ? "Load More" : "Nothing left to load"}
-      </button>
-      {isFetchingNextPage && <p>Getting data...</p>}
+      {(!data || !data.pages[0].artObjects.length) && !isFetching ? (
+        <p> Nothing Found ...</p>
+      ) : (
+        <Button
+          className="search"
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          {hasNextPage ? "Load More" : "Nothing left to load"}
+        </Button>
+      )}
     </div>
   );
+};
+
+const ItemsLoader = () => {
+  const loadingArray = useMemo(() => [...Array(20)], []);
+
+  return loadingArray.map((el, key) => <ItemLoader key={key} />);
 };
 
 export default ItemsList;

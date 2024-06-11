@@ -1,0 +1,20 @@
+/* CSS RESET */
+
+html,
+body {
+  min-height: 100dvh;
+  background: #f1f5f9;
+}
+
+:root {
+  --grey-100: #e4e4e7;
+  --grey-200: #d4d4d8;
+  --grey-300: #a1a1aa;
+  --main: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

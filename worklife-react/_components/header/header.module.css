@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  height: 4rem;
+  width: 100%;
+  background: white;
+  z-index: 100;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.logoWrapper {
+  display: flex;
+  gap: 1rem;
+  color: var(--main);
+}
+
+.title {
+  font-weight: 00;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.logo {
+  width: 4rem;
+  aspect-ratio: 1/1;
+}

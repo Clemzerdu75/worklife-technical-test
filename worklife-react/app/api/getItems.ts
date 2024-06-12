@@ -28,7 +28,7 @@ const getItems = async ({ pageParam, search = "" }: Props) => {
   try {
     let res: Res;
     const resp = await fetch(
-      `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.NEXT_PUBLIC_RIJKS_API_KEY}&ps=${itemPerPage}&p=${pageParam}&q=${search}`
+      `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.RIJKS_API_KEY}&ps=${itemPerPage}&p=${pageParam}&q=${search}`
     );
     const json = await resp.json();
 

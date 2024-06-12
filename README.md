@@ -11,7 +11,7 @@ then to run it you need to provide an API key for RIJKS, for that you need to:
 
 - create a file named `.env.local` in the root of the project
 - inside of the file create a variable named :
-  `NEXT_PUBLIC_RIJKS_API_KEY=your_api_key`
+  `RIJKS_API_KEY=your_api_key`
 
 and then you can run :
 

@@ -42,8 +42,6 @@ const getItems = async ({ pageParam, search = "" }: Props) => {
       res = json;
     }
 
-    console.log(res);
-
     return res;
   } catch (err) {
     throw err;

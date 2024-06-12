@@ -1,3 +1,5 @@
+"use server";
+
 /**
  * Handle Data fetching from rijks museum with page and search filtering
  * @param {string} pageParam specific page to load
@@ -39,6 +41,8 @@ const getItems = async ({ pageParam, search = "" }: Props) => {
     } else {
       res = json;
     }
+
+    console.log(res);
 
     return res;
   } catch (err) {

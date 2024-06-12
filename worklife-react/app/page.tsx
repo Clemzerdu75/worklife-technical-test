@@ -9,14 +9,13 @@ import ItemsList from "@/_components/items/itemsList";
 import getItems from "@/app/api/getItems";
 import styles from "./page.module.css";
 
-const search = "";
-
 export default async function Home() {
   const queryClient = new QueryClient();
 
+  // Prefetch data on server side
   await queryClient.prefetchInfiniteQuery({
-    queryKey: ["items", search],
-    queryFn: ({ pageParam }) => getItems({ pageParam, search }),
+    queryKey: ["items", ""],
+    queryFn: ({ pageParam }) => getItems({ pageParam }),
     initialPageParam: 1,
   });
 

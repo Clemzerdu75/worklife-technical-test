@@ -6,18 +6,26 @@ import style from "./searchbox.module.css";
 import Button from "../button/button";
 import { CircleX } from "lucide-react";
 
+/**
+ * Search Form to provide string for sending to the API
+ * @param {function} setSearch set string to the parent component for data fetching
+ */
+
 interface Props {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SearchBox = ({ setSearch }: Props) => {
+  /* search string from input */
   const [searchField, setSearchField] = useState("");
 
+  /* Send search string to parent when form is submitted */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSearch(searchField);
   };
 
+  /* Clear search field and search data to reset search */
   const resetSearch = () => {
     setSearchField("");
     setSearch("");
@@ -32,6 +40,8 @@ const SearchBox = ({ setSearch }: Props) => {
           value={searchField}
           onChange={(e) => setSearchField(e.target.value)}
         />
+
+        {/* Reset Handling */}
         <div className={style.deleteWrapper}>
           {searchField.length ? (
             <button

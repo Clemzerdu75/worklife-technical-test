@@ -14,9 +14,7 @@ interface Res {
 
 const itemPerPage = 20;
 
-export default async ({ pageParam, search = "" }: Props) => {
-  console.log(search);
-
+const getItems = async ({ pageParam, search = "" }: Props) => {
   try {
     let res: Res;
     const resp = await fetch(
@@ -35,3 +33,5 @@ export default async ({ pageParam, search = "" }: Props) => {
     throw err;
   }
 };
+
+export default getItems;

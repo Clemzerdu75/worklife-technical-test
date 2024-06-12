@@ -27,5 +27,5 @@ For this project i used some library from an improved DX :
 
 ## Project Architecture
 
-The architecture is quiet simple, i made a little diagram on figjam :
-[FigJam](https://www.figma.com/board/RSTIbvTvvSKMz7wXkCdgML/worlike-project-architecture?node-id=0-1&t=UlE8AT1MltRUxmam-1)
+The architecture is quiet simple, i made a little diagram on
+[FigJam](https://www.figma.com/board/RSTIbvTvvSKMz7wXkCdgML/worlike-project-architecture?node-id=0-1&t=UlE8AT1MltRUxmam-1){:target="\_blank"}
